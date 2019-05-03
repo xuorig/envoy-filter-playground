@@ -1,0 +1,10 @@
+FROM python:3.7-alpine
+
+COPY service2/requirements.txt /
+RUN pip install -r /requirements.txt
+
+COPY service2/service.py /
+
+RUN pip install -r requirements.txt
+ENTRYPOINT ["python"]
+CMD ["service.py"]

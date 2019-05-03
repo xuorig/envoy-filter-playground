@@ -1,0 +1,30 @@
+version: '2'
+services:
+  service1:
+    build:
+      context: .
+      dockerfile: Dockerfile-service1
+    networks:
+      envoymesh:
+        aliases:
+          - service1
+    expose:
+      - "5001"
+    ports:
+      - "5001:5001"
+
+  service2:
+    build:
+      context: .
+      dockerfile: Dockerfile-service2
+    networks:
+      envoymesh:
+        aliases:
+          - service2
+    expose:
+      - "5002"
+    ports:
+      - "5002:5002"
+
+networks:
+  envoymesh: {}
